@@ -1,15 +1,4 @@
-#labelforsetting,
-#labelforvisualmode,
-#switchforvisualmode:checked+#labelforvisualmode {
-    background-repeat: no-repeat;
-    background-position: center
-}
-
-#labelforsetting,
-#labelforsound {
-    height: 40px;
-    background-size: 60%
-}
+/* settings label selectors removed */
 
 #preloader,
 .invertapplied,
@@ -126,47 +115,9 @@ html {
     background-color: #8000ff
 }
 
-.cursor-inner {
-    width: 8px;
-    height: 8px;
-    background-color: var(--color-light-blue)
-}
+/* settings container styles removed */
 
-.cursor-outer {
-    width: 35px;
-    height: 35px;
-    border: 2px solid #fff
-}
-
-.cursor-inner,
-.cursor-outer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: 9999;
-    pointer-events: none
-}
-
-.setting-container,
-.settingactivate {
-    transform-origin: left;
-    transition-duration: .5s
-}
-
-.cursor-inner.hover {
-    width: 25px;
-    height: 25px;
-    transition: .2s;
-    mix-blend-mode: difference
-}
-
-.cursor-outer.hover {
-    width: 50px;
-    height: 50px;
-    transition: .2s
-}
+/* custom cursor styles removed */
 
 .activeThistab:before,
 .navbar-tabs-ul li:hover:before {
@@ -200,84 +151,17 @@ html {
     padding: 20px 0
 }
 
-#labelforsetting {
-    width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 20px;
-    background-image: url(src/svg/settings-svgrepo-com.svg);
-    transition-duration: .5s;
-    cursor: pointer
-}
+/* label for setting removed */
 
-.soundtogglebuttoncontainer,
-.visualmodetogglebuttoncontainer {
-    align-items: center;
-    width: fit-content;
-    transition-duration: .3s
-}
+/* visual mode toggle styles removed */
 
-.settingactivate {
-    width: 200px
-}
-
-.visualmodetogglebuttoncontainer {
-    height: fit-content;
-    display: flex;
-    justify-content: center;
-    transform: translate(-50px) scale(0)
-}
-
-.visualmodeshow {
-    transition-duration: .3s;
-    transform: translate(0) scale(1)
-}
-
-#switchforsetting,
-#switchforsound,
-#switchforvisualmode,
+/* input switches removed; keep hamburger / mobiletogglemenu rules if needed */
 .hamburger,
 .mobiletogglemenu {
     display: none
 }
 
-#switchforsetting:checked+#labelforsetting {
-    transform: rotate(180deg);
-    transition-duration: .5s
-}
-
-#labelforvisualmode {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    background-image: url(src/png/crescent-moon\ \(1\).png);
-    background-size: 50%;
-    transition-duration: .5s;
-    cursor: pointer
-}
-
-#switchforvisualmode:checked+#labelforvisualmode {
-    transform: rotate(360deg);
-    transition-duration: .5s;
-    background-image: url(src/png/sun.png);
-    background-size: 60%
-}
-
-.soundtogglebuttoncontainer {
-    height: fit-content;
-    display: flex;
-    justify-content: center;
-    transform: translate(-130px) scale(0)
-}
-
-#labelforsound,
-#preloader {
-    display: flex;
-    align-items: center;
-    background-repeat: no-repeat;
-    background-position: center
-}
+/* more settings/visual mode/sound styles removed */
 
 .soundmodeshow {
     transition-delay: .1s;
@@ -291,22 +175,7 @@ html {
     transition-duration: 1s
 }
 
-#labelforsound {
-    position: relative;
-    justify-content: center;
-    width: 40px;
-    background-image: url(src/svg/Mute_Icon.svg);
-    cursor: pointer;
-    transition-duration: .5s
-}
-
-#switchforsound:checked+#labelforsound {
-    transition-duration: .5s;
-    background-image: url(src/svg/Speaker_Icon.svg);
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: center
-}
+/* sound label rules removed */
 
 header {
     width: 100%;
@@ -809,28 +678,6 @@ noscript {
     justify-content: flex-start
 }
 
-.letsTalkBtn {
-    position: relative;
-    border: none;
-    width: 180px;
-    height: 40px;
-    border-radius: 0;
-    cursor: pointer;
-    transition: .3s
-}
-
-.letsTalkBtn-text {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(230, 230, 230, .466);
-    border: none;
-    border-radius: 7px;
-    backdrop-filter: blur(5px);
-    color: #000;
-    align-items: center;
-    justify-content: center;
-    letter-spacing: .8px
-}
 
 .cta:hover span,
 .text,
@@ -845,34 +692,7 @@ noscript {
     display: flex
 }
 
-.letsTalkBtn-BG {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(150deg, #71cbff, #8000ff);
-    z-index: -1;
-    left: 6px;
-    top: 6px;
-    border-radius: 7px;
-    pointer-events: none;
-    transition: .3s
-}
-
-.letsTalkBtn:hover {
-    transform: translateY(-2px) translateX(-2px)
-}
-
-.letsTalkBtn:hover .letsTalkBtn-BG {
-    transform: translateY(2px) translateX(2px)
-}
-
-.letsTalkBtn:active {
-    transform: translateY(7px) translateX(7px)
-}
-
-.letsTalkBtn:active .letsTalkBtn-BG {
-    transform: translateY(-7px) translateX(-7px)
-}
+/* Let's Talk button styles removed */
 
 .resume-btn {
     margin-top: 25px;
@@ -1483,73 +1303,7 @@ footer {
     transition-duration: .3s
 }
 
-.footer-avatar-container {
-    width: 220px;
-    margin-top: 20px;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center
-}
-
-.footer-avatar-img {
-    width: 100%;
-    z-index: 2
-}
-
-.footer-avatar-face {
-    position: absolute;
-    width: 100%;
-    height: 97%;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-    padding-left: 5px
-}
-
-.footer-avatar-eye {
-    width: 50px;
-    height: 50px;
-    background-color: #dfd2d2;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center
-}
-
-.footer-pupil {
-    width: 20px;
-    height: 20px;
-    background-color: #000;
-    border-radius: 50%;
-    border: 5px solid #413333;
-    filter: blur(.6px)
-}
-
-.footer-right-eye {
-    box-shadow: 15px 15px 5px rgba(0, 0, 0, .233) inset, 10px 10px 5px rgba(41, 33, 33, .644) inset;
-    position: relative
-}
-
-.footer-left-eye {
-    box-shadow: -10px -15px 5px rgba(0, 0, 0, .349) inset;
-    position: relative
-}
-
-.footer-avatar-eye::before {
-    position: absolute;
-    content: "";
-    width: 2px;
-    height: 5px;
-    border-radius: 50%;
-    background-color: rgba(214, 214, 214, .726);
-    z-index: 2;
-    filter: blur(.2px);
-    left: 15px;
-    transform: rotate(45deg)
-}
+/* footer avatar styles removed */
 
 .footer-bottom {
     background-color: #0b0b0b;
@@ -1630,8 +1384,6 @@ footer {
     }
 
     .blob,
-    .cursor-inner,
-    .cursor-outer,
     .navbar-tabs-ul {
         display: none
     }

@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- 
-agradecimientos a: vingo jangio
+agradecimientos a: vingo jangio (templade)
 -->
 
 <head>
-
-  <!-- 
-    removiendo cositas
-  -->
 
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -52,38 +48,31 @@ agradecimientos a: vingo jangio
   <noscript>Allow Javascript</noscript>
 
   <header>
-    <!-- custom cursor removed -->
-
     <div class="navbar" id="navbar">
-      <div class="hey">Hey!</div>
-      <div class="logo" tabindex="0" aria-label="chikiyu logo">
-        <div class="logo-top">
-          <img src="src/png/nav-avatar.png" alt="animation-head" id="nav-avatar"/>
-        </div>
-      </div>
+      <div class="hey">Hi!</div>
       <div class="navbar-tabs" id="navbar-tabs">
         <ul class="navbar-tabs-ul">
           <li class="home activeThistab" class="navbar-tabs-li" data-aos="fade-down" data-aos-delay="100">
             <a href="#home" tabindex="0" aria-label="Home menu button">
-              &#60;/Home&#62;
+              Home
             </a>
           </li>
 
           <li class="about" class="navbar-tabs-li" data-aos="fade-down" data-aos-delay="300">
             <a href="#about" aria-label="about menu button">
-              &#60;/AboutMe&#62;
+              Sobre mi
             </a>
           </li>
 
           <li class="skills" class="navbar-tabs-li" data-aos="fade-down" data-aos-delay="500">
             <a href="#skills" aria-label="skills menu button">
-              &#60;/Skills&#62;
+              Skills
             </a>
           </li>
 
           <li class="projects" class="navbar-tabs-li" data-aos="fade-down" data-aos-delay="700">
             <a href="#projects" aria-label="projects menu button">
-              &#60;/Projects&#62;
+              Proyectos
             </a>
           </li>
         </ul>
@@ -94,110 +83,25 @@ agradecimientos a: vingo jangio
   <!-- header ends here -->
 
   <main>
-    <!-- hamburger -->
-    <div class="hamburger" id="hamburger" data-aos="fade">
-      <div class="hamburgerbase">
-        <button id="hamburger-button" onclick="hamburgerMenu()" tabindex="0" aria-label="Menu Button">
-          <span class="burger-bar" id="burger-bar1"></span>
-          <span class="burger-bar" id="burger-bar2"></span>
-          <span class="burger-bar" id="burger-bar3"></span>
-        </button>
-      </div>
-    </div>
-    <!-- hamburger -->
-    <div class="mobiletogglemenu" id="mobiletogglemenu">
-      <ul class="mobile-navbar-tabs-ul" id="mobile-ul">
-        <li id="home-mobile-tab" class="mobile-navbar-tabs-li home activeThismobiletab" onclick="hidemenubyli()">
-          <a href="#home" tabindex="0" aria-label="Home menu button">
-            &#60;/Home&#62;
-          </a>
-        </li>
-
-        <li id="aboutme-mobile-tab" class="mobile-navbar-tabs-li about" onclick="hidemenubyli()">
-          <a href="#about" tabindex="0" aria-label="about menu button">
-            &#60;/AboutMe&#62;
-          </a>
-        </li>
-        <li id="skills-mobile-tab" class="mobile-navbar-tabs-li skills" onclick="hidemenubyli()">
-          <a href="#skills" tabindex="0" aria-label="skills menu button">
-            &#60;/Skills&#62;
-          </a>
-        </li>
-        <li id="projects-mobile-tab" class="mobile-navbar-tabs-li projects" onclick="hidemenubyli()">
-          <a href="#projects" tabindex="0" aria-label="projects menu button">
-            &#60;/Projects&#62;
-          </a>
-        </li>
-      </ul>
-    </div>
     <!-- mobile toggle menu ends -->
 
     <section class="landing-page-container" id="home">
       <div class="blob"></div>
       <div class="text-content">
         <article id="hello-friend" data-aos="fade-up" data-aos-delay="0">
-          <p class="jello">W</p>
-          <p class="jello">a</p>
-          <p class="jello">t</p>
-          <p class="jello">a</p>
-          <p class="jello">s</p>
-          <p class="jello">h</p>
-          <p class="jello">i</p>
-          &nbsp;
-          <p class="jello">w</p>
-          <p class="jello">a</p>
+          <p class="intro-line">Watashi wa</p>
         </article>
         <article id="name" data-aos="fade-up" data-aos-delay="150">
-          <p class="jello">A</p>
-          <p class="jello">l</p>
-          <p class="jello">e</p>
-          <p class="jello">x</p>
-          <p class="jello">i</p>
-          <p class="jello">s</p>
-          &nbsp;
-          <p class="jello">P</p>
-          <p class="jello">a</p>
-          <p class="jello">c</p>
-          <p class="jello">h</p>
-          <p class="jello">a</p>
-          <p class="jello">r</p>
-          <p class="jello">i</p>
+          <p class="intro-line name-line">Alexis Pachari</p>
         </article>
 
-        <article id="hello-friend" data-aos="fade-up" data-aos-delay="0">
-          <p class="jello">I</p>
-          &nbsp;
-          <p class="jello">C</p>
-          <p class="jello">o</p>
-          <p class="jello">m</p>
-          <p class="jello">p</p>
-          <p class="jello">u</p>
-          <p class="jello">t</p>
-          <p class="jello">e</p>
-          <p class="jello">r</p>
-          &nbsp;
-          <p class="jello">S</p>
-          <p class="jello">c</p>
-          <p class="jello">i</p>
-          <p class="jello">e</p>
-          <p class="jello">n</p>
-          <p class="jello">c</p>
-          <p class="jello">e</p>
-          &nbsp;
-          <p class="jello">S</p>
-          <p class="jello">t</p>
-          <p class="jello">u</p>
-          <p class="jello">d</p>
-          <p class="jello">e</p>
-          <p class="jello">n</p>
-          <p class="jello">t</p>
-          <p class="jello">.</p>
+        <article id="work" data-aos="fade-up" data-aos-delay="300">
+          <p class="intro-line work-line">Computer Science Student</p>
         </article>
         <p id="info-para" data-aos="fade-up" data-aos-delay="600">
           Me apasiona la tecnología, la innovación y crear soluciones que conecten 
           la programación e inteligencia artificial con el mundo real.<br />
         </p>
-        <!-- contact buttons (Let's Talk & settings) removed -->
       </div>
      
     </section>
@@ -206,7 +110,7 @@ agradecimientos a: vingo jangio
       <div class="about-section">
         <div class="section-heading">
           <h2 class="section-heading-article" tabindex="0" aria-label="About me heading">
-            &#60;/AboutMe&#62;
+            Sobre mi;
           </h2>
           <p class="sectionHeadingP"></p>
         </div>
@@ -214,13 +118,16 @@ agradecimientos a: vingo jangio
         <div class="info-dp-section">
           <div class="about-info">
             <p tabindex="0">
-              Hi! My name is Alexis Pachari. Estudiante de ciencias de la computacion.
+              Hi! Mi nombre es Alexis Pachari. Estudiante de ciencias de la computacion en la UNSAAC.
             </p>
             <br />
             <p tabindex="0">
               Soy una persona curiosa, reflexiva y constante. Me gusta aprender cosas nuevas, 
               entender cómo funcionan los sistemas y aplicar ese conocimiento en proyectos que 
               combinen lógica, creatividad y propósito.
+              <br />
+              &nbsp;
+              ~"Ideas World"
             </p>
             <br />
              <!-- Resume button -->

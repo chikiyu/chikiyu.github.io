@@ -312,6 +312,30 @@ noscript {
     opacity: 0
 }
 
+/* Static nickname shown beside Hi! in header */
+.hey-name {
+    position: absolute;
+    left: 160px;
+    bottom: 62px;
+    color: var(--color-white);
+    font-family: fira code;
+    font-size: 2.2rem;
+    font-weight: 500;
+    pointer-events: none;
+    opacity: 1;
+    z-index: 1001;
+    transform: translateY(1cm);
+    -webkit-transform: translateY(1cm);
+}
+
+@media (max-width: 900px) {
+    .hey-name { left: 180px; font-size: 1.8rem; bottom: 76px; }
+}
+
+@media (max-width: 600px) {
+    .hey-name { display: none; }
+}
+
 #hello-friend,
 #work,
 .about-info p,
@@ -415,29 +439,30 @@ noscript {
 }
 
 .blob {
+    /* Minimal, elegant floating radial blob */
     position: absolute;
-    right: -15%;
-    top: 0;
-    background-color: var(--color-light-purple);
-    width: 600px;
-    height: 100vh;
-    filter: blur(300px);
-    opacity: .3;
-    animation: 1s linear infinite alternate-reverse breath
+    right: -8%;
+    top: -6%;
+    width: 50vmin;
+    height: 50vmin;
+    background: radial-gradient(circle at 30% 30%, rgba(108,197,248,0.18) 0%, rgba(111,66,255,0.12) 40%, rgba(111,66,255,0.00) 70%);
+    filter: blur(60px);
+    opacity: 0.95;
+    transform-origin: center;
+    z-index: -1;
+    animation: float-blob 8s ease-in-out infinite;
 }
 
-@keyframes breath {
-    from {
-        opacity: .3
-    }
-
-    to {
-        opacity: .5
-    }
+@keyframes float-blob {
+    0% { transform: translate3d(0,0,0) rotate(0deg) scale(1); }
+    50% { transform: translate3d(-12px,18px,0) rotate(8deg) scale(1.02); }
+    100% { transform: translate3d(0,0,0) rotate(0deg) scale(1); }
 }
 
 .landing-page-container {
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     height: calc(100vh - 115px);
     display: flex;
     flex-direction: row;
@@ -450,7 +475,7 @@ noscript {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 920px;
+    max-width: 900px;
     height: 100%;
     align-items: center;
     justify-content: center;
@@ -459,29 +484,20 @@ noscript {
 }
 
 #hello-friend {
-    /* minimal greeting style */
-    font-size: 2.2rem;
-    font-weight: 400;
+    font-size: 3.5rem;
+    font-weight: 600;
     width: fit-content;
-    display: block;
-    margin: 0 0 6px 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
-#name {
-    /* minimal name style */
-    font-size: 4.8rem;
-    font-weight: 700;
-    width: fit-content;
-    margin: 0 0 6px 0;
-}
-
+#name,
 #work {
-    /* minimal study line style */
-    font-size: 1.9rem;
-    font-weight: 400;
+    font-size: 8rem;
     width: fit-content;
-    margin: 0;
-    color: var(--color-ddd-color);
+    justify-content: center;
+    align-items: center;
 }
 
 #name,
@@ -551,11 +567,12 @@ noscript {
 
 #name {
     align-items: flex-start;
-    /* use a single subtle color for a minimal look */
-    color: #5860a8;
-    background: none;
-    -webkit-animation: none;
-    animation: none;
+    background: linear-gradient(-45deg, var(--color-light-blue), var(--color-light-purple), var(--color-light-blue), var(--color-light-purple));
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-size: 400% 400%;
+    -webkit-animation: 3s infinite gradient;
+    animation: 3s infinite gradient
 }
 
 @keyframes gradient {
@@ -768,6 +785,24 @@ noscript {
     padding-right: 10px
 }
 
+/* Mostrar el botón de Resume expandido por defecto SOLO en la sección About */
+.about-section .resume-btn {
+    width: 130px;
+    border-radius: 40px;
+    justify-content: flex-start;
+}
+
+.about-section .resume-btn .sign {
+    width: 30%;
+    padding-left: 20px;
+}
+
+.about-section .resume-btn .text {
+    opacity: 1;
+    width: 70%;
+    padding-right: 10px;
+}
+
 .dp,
 .dp::after,
 .dp::before,
@@ -793,11 +828,13 @@ noscript {
 .about-section,
 .projects-section-div,
 .skills-section {
-    width: 60%;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center
+    justify-content: center;
 }
 
 .projects-heading,
@@ -1010,7 +1047,7 @@ footer {
 
 .project-box {
     width: 100%;
-    height: 400px;
+    height: 200px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -1026,8 +1063,8 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 20px;
-    padding: 0 40px
+    gap: 12px;
+    padding: 0 20px
 }
 
 .faviconforProject {
@@ -1042,24 +1079,26 @@ footer {
 .image-div {
     width: 50%;
     height: 100%;
-    padding-top: 70px;
+    padding-top: 10px;
     padding-left: 10px
 }
 
 .image-div img {
     height: 100%;
+    width: 100%;
+    object-fit: cover;
     border-top-left-radius: 30px
 }
 
 .ProjectHeading {
     color: var(--color-white);
-    font-size: 3.4rem;
+    font-size: 2.4rem;
     font-weight: 700
 }
 
 .ProjectDescription {
     color: gray;
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     font-weight: 400
 }
 
@@ -1097,6 +1136,30 @@ footer {
     justify-content: flex-start
 }
 
+/* Mostrar los botones 'Live view' expandidos por defecto solo en la sección Projects */
+.projects-section-container .project-buttons .cta {
+    position: relative;
+    padding: 12px 22px;
+}
+
+.projects-section-container .project-buttons .cta::before {
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #2b2f4e;
+    border-radius: 40px;
+    height: 45px;
+}
+
+.projects-section-container .project-buttons .cta span {
+    color: #fff;
+}
+
+.projects-section-container .project-buttons .cta svg {
+    stroke: #fff;
+    transform: translateX(0);
+}
+
 .cta::before {
     content: "";
     position: absolute;
@@ -1110,9 +1173,9 @@ footer {
 }
 
 .cta span {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 600;
-    letter-spacing: .05em;
+    letter-spacing: .03em;
     color: var(--color-light-blue)
 }
 
@@ -1332,6 +1395,69 @@ footer {
         font-size: 60%
     }
 }
+
+/* Hobbies (Aficiones) styles - minimal, elegant cards */
+.hobbies-section-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 0;
+}
+.hobbies-section {
+    width: 60%;
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.hobby-list {
+    display: flex;
+    flex-direction: column;
+    gap: calc(14px + 0.5cm); /* add ~1cm more space between hobby cards */
+}
+.hobby-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 14px 20px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.04);
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+.hobby-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.28);
+}
+.hobby-img {
+    flex: 0 0 56px;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-light-blue);
+}
+.hobby-img svg { width: 56px; height: 56px; }
+.hobby-text { display: flex; flex-direction: column; margin-left: 1cm; }
+.hobby-title { font-size: 1.8rem; font-weight: 700; color: var(--color-white); }
+.hobby-desc { font-size: 1.45rem; color: var(--color-white); margin-top: 8px; line-height:1.4 }
+
+.hobbies-intro { font-size: 1.6rem; color: var(--color-white); margin: 8px 0 18px 0; opacity: 0.95 }
+
+.hobby-img img { width:56px; height:56px; object-fit:contain; display:block }
+
+@media screen and (max-width: 998px) {
+    .hobbies-section { width: 80%; }
+    .hobby-title { font-size: 1.6rem; }
+    .hobby-desc { font-size: 1.2rem; }
+    /* reduce the added spacing and offset on smaller screens */
+    .hobby-list { gap: calc(14px + 0.6cm); }
+    .hobby-text { margin-left: 0.6cm; }
+}
+
 
 @media screen and (max-width:1400px) {
     html {
@@ -1557,7 +1683,7 @@ footer {
 
     .project-box {
         flex-direction: column;
-        height: 800px
+        height: 400px
     }
 
     .image-div,
@@ -1671,7 +1797,7 @@ footer {
     }
 
     .project-box {
-        height: 550px
+        height: 275px
     }
 
     .info-div {
@@ -1782,5 +1908,26 @@ footer {
     .landing-page-container {
         height: fit-content;
         margin-top: 100px;  
+    }
+}
+
+/* About section quote styling */
+.about-quote {
+    font-style: italic;
+    color: var(--color-gray);
+    margin: 14px 0 18px 0;
+    padding-left: 14px;
+    border-left: 3px solid rgba(255,255,255,0.06);
+    max-width: 720px;
+    font-size: 2.4rem;
+    font-weight: 300;
+    letter-spacing: 0.2px;
+}
+
+@media (max-width: 768px) {
+    .about-quote {
+        margin-left: 6px;
+        padding-left: 10px;
+        font-size: 0.95rem;
     }
 }

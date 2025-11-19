@@ -1,4 +1,4 @@
-var audio = document.getElementById("audioPlayer"), loader = document.getElementById("preloader");
+var loader = document.getElementById("preloader");
 
 // Hide preloader and trigger intro popup
 window.addEventListener("load", function () {

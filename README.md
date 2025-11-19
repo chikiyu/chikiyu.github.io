@@ -1,4 +1,4 @@
-# Portafolio Personal de [tu nombre o alias]
+# Portafolio Personal de chikiyu
 
 Este portafolio está basado en la plantilla de [Vinod Jangid](https://github.com/vinodjangid07/vinodjangid07.github.io), con modificaciones sustanciales para reflejar mi perfil, intereses y proyectos propios.
 

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milton Pachari · chikiyu</title>
+
+<!-- SEO & Open Graph — controla cómo se ve al compartir en LinkedIn/WhatsApp -->
+<meta name="description" content="Portfolio de Milton Pachari (chikiyu) — ML, minería de datos, NLP. Proyectos con impacto y contexto andino.">
+<meta property="og:title" content="Milton Pachari · chikiyu">
+<meta property="og:description" content="ML, minería de datos, NLP. Proyectos con impacto y contexto andino. Egresado UNSAAC.">
+<meta property="og:image" content="https://chikiyu.github.io/img/perfil_arequipa.jpg">
+<meta property="og:url" content="https://chikiyu.github.io">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Preconnect — el navegador establece conexión con Google Fonts antes de necesitarla -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500&family=Syne+Mono&display=swap" rel="stylesheet">
+
+<!-- ════════════════════════════════════════════════════════
+  FRASES — elige una, reemplaza la que está en .h-phrase:
+
+  A) "la incertidumbre ya es costumbre y yo busco renacer"          ← usada
+  B) "Sé el más curioso en la sala."
+  C) "El conocimiento que uno tiene no le pertenece solo a uno."
+  D) "Dolor del arrepentimiento o dolor de la disciplina — elige."
+  E) "Solo importa participar si yo soy el que gana."
+  F) "Actúa antes de que sea el momento perfecto."
+════════════════════════════════════════════════════════ -->
+
+<style>
+
+/* ══ TOKENS ══════════════════════════════════════════ */
+body {
+  --bg:     #f4f0e8;
+  --bg2:    #e8e2d6;
+  --ink:    #181410;
+  --ink2:   #504840;
+  --ink3:   #908880;
+  --accent: #8b6338;
+  --line:   rgba(24,20,16,0.1);
+  --imgf:   contrast(1.02) saturate(0.9);
+  --pol-shadow: 0 3px 14px rgba(24,20,16,0.18);
+}
+body.dark {
+  --bg:     #110f0c;
+  --bg2:    #1c1916;
+  --ink:    #e2d8ca;
+  --ink2:   rgba(226,216,202,0.52);
+  --ink3:   rgba(226,216,202,0.26);
+  --accent: #c49a50;
+  --line:   rgba(226,216,202,0.09);
+  --imgf:   contrast(1.04) saturate(0.72) brightness(0.86);
+  --pol-shadow: 0 3px 18px rgba(0,0,0,0.45);
+}
+
+/* ══ SCROLLBAR ═══════════════════════════════════════ */
+::-webkit-scrollbar { width:6px; }
+::-webkit-scrollbar-track { background:#e8e2d6; }
+::-webkit-scrollbar-thumb { background:#908880; border-radius:3px; transition:background .3s; }
+::-webkit-scrollbar-thumb:hover { background:#8b6338; }
+html:has(.dark)::-webkit-scrollbar-track { background:#1c1916; }
+html:has(.dark)::-webkit-scrollbar-thumb { background:rgba(226,216,202,0.18); }
+html:has(.dark)::-webkit-scrollbar-thumb:hover { background:#c49a50; }
+html { scrollbar-width:thin; scrollbar-color:#908880 #e8e2d6; }
+html:has(.dark) { scrollbar-color:rgba(226,216,202,0.18) #1c1916; }
+
+/* ══ BASE ════════════════════════════════════════════ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-snap-type:y mandatory; overflow-y:scroll; height:100%; }
+body {
+  background:var(--bg); color:var(--ink);
+  font-family:'Inter',sans-serif; font-size:20px; line-height:1.72;
+  height:100%; transition:background .4s,color .4s; overflow-x:hidden;
+}
+img { display:block; width:100%; object-fit:cover; filter:var(--imgf); transition:filter .4s; }
+
+/* grain */
+body::after {
+  content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.022;
+}
+
+/* ══ NAV ═════════════════════════════════════════════ */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:400;
+  background:var(--bg); border-bottom:1px solid var(--line);
+  transition:background .4s,border-color .4s;
+}
+.nav-inner {
+  max-width:960px; margin:0 auto; padding:14px 56px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.nav-brand {
+  font-family:'Syne Mono',monospace; font-size:13px;
+  color:var(--ink); text-decoration:none; letter-spacing:.07em;
+  transition:color .4s;
+}
+.toggle {
+  background:var(--bg2); border:1px solid var(--line); border-radius:100px;
+  padding:5px 14px; font-family:'Syne Mono',monospace; font-size:12px;
+  cursor:pointer; color:var(--ink2); transition:all .3s;
+  display:flex; align-items:center; gap:6px;
+}
+.toggle:hover { border-color:var(--accent); color:var(--ink); }
+.toggle .d { display:block; }
+.toggle .n { display:none; }
+body.dark .toggle .d { display:none; }
+body.dark .toggle .n { display:block; }
+
+/* ══ SIDE DOTS ════════════════════════════════════════ */
+.dots {
+  position:fixed; right:26px; top:50%; transform:translateY(-50%);
+  display:flex; flex-direction:column; gap:14px; z-index:400;
+}
+.dot {
+  width:5px; height:5px; border-radius:50%;
+  background:var(--ink3); border:none; cursor:pointer; padding:0;
+  transition:background .3s,transform .3s;
+}
+.dot.on { background:var(--accent); transform:scale(1.7); }
+
+/* ══ SNAP PAGES ═══════════════════════════════════════ */
+.page {
+  height:100vh; scroll-snap-align:start; scroll-snap-stop:always;
+  overflow:hidden; position:relative; z-index:1;
+  display:flex; align-items:center;
+}
+.pi { max-width:960px; width:100%; margin:0 auto; padding:0 56px; }
+
+
+/* ══ P1 — INICIO ═════════════════════════════════════ */
+.p1 .pi { padding-top:54px; }
+
+.eyebrow {
+  font-family:'Inter',sans-serif; font-weight:500;
+  font-size:12px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink3); margin-bottom:20px; transition:color .4s;
+}
+
+/* portrait — floated right */
+.h-portrait {
+  float:right; width:280px; height:280px;
+  margin:8px 0 18px 40px; overflow:hidden; border-radius:2px;
+}
+.h-portrait img { width:100%; height:100%; object-fit:cover; }
+.h-portrait .ph {
+  width:100%; height:100%; background:var(--bg2); border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center;
+  font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink3);
+}
+
+/* Name — design15 style */
+.h-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:58px; font-weight:500; line-height:.97;
+  letter-spacing:-.015em; margin-bottom:4px;
+}
+.h-nick {
+  font-family:'Syne Mono',monospace; font-size:14px;
+  color:var(--accent); letter-spacing:.09em; margin-bottom:26px;
+  transition:color .4s;
+}
+
+.h-phrase {
+  font-family:'Cormorant Garamond',serif;
+  font-size:21px; font-style:italic; font-weight:400;
+  color:var(--ink2); line-height:1.52; max-width:418px;
+  margin-bottom:36px; transition:color .4s; clear:none;
+}
+.h-desc {
+  font-size:17px; color:var(--ink2); font-weight:400; line-height:1.78;
+  max-width:478px; margin-bottom:16px; transition:color .4s; clear:none;
+}
+.h-links { display:flex; gap:24px; flex-wrap:wrap; clear:both; }
+.hl {
+  font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+  text-decoration:none; color:var(--ink2);
+  display:inline-flex; align-items:center; gap:7px;
+  transition:color .2s,gap .2s;
+}
+.hl::after { content:'→'; color:var(--accent); transition:color .4s; }
+.hl:hover { color:var(--ink); gap:11px; }
+
+/* ══ P2 — PROYECTOS ══════════════════════════════════ */
+.pg-label {
+  font-family:'Inter',sans-serif; font-weight:500;
+  font-size:12px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink3); margin-bottom:14px; display:block; transition:color .4s;
+}
+
+.proj-rows { display:flex; flex-direction:column; gap:0; }
+.proj-row {
+  display:grid; grid-template-columns:48px 1fr 240px;
+  gap:0 76px; align-items:start;
+  padding:16px 0; border-bottom:1px solid var(--line);
+  transition:border-color .4s;
+}
+.proj-row:last-child { border-bottom:none; }
+.pr-num {
+  font-family:'Syne Mono',monospace; font-size:11px;
+  color:var(--ink3); letter-spacing:.1em; padding-top:3px;
+  transition:color .4s;
+}
+.pr-cat {
+  font-family:'Inter',sans-serif; font-size:11px; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink3); margin-bottom:4px; transition:color .4s;
+  display:flex; align-items:center; gap:10px;
+}
+.pr-metric-inline {
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px; font-weight:600; color:var(--accent);
+  transition:color .4s; font-style:normal;
+}
+.pr-name {
+  font-family:'Cormorant Garamond',serif; font-size:26px;
+  font-weight:500; font-style:italic; line-height:1.1; margin-bottom:6px;
+}
+.pr-desc {
+  font-size:16px; color:var(--ink2); font-weight:400; line-height:1.72;
+  transition:color .4s;
+}
+.pr-desc strong { color:var(--ink); font-weight:500; }
+.pr-foot {
+  display:flex; align-items:center; gap:16px; margin-top:6px; flex-wrap:wrap;
+}
+.pr-stack {
+  font-family:'Syne Mono',monospace; font-size:11px;
+  color:var(--ink3); letter-spacing:.04em;
+  transition:color .4s;
+}
+.pr-stack span { margin-right:12px; }
+.pr-link {
+  font-family:'Syne Mono',monospace; font-size:11px;
+  letter-spacing:.06em; color:var(--accent);
+  text-decoration:none; transition:color .2s;
+}
+.pr-link:hover { color:var(--ink); }
+
+/* project image — 240px wide, 4:3 */
+.pr-img {
+  width:240px; aspect-ratio:4/3; overflow:hidden;
+  background:var(--bg2); flex-shrink:0;
+}
+.pr-img img { width:100%; height:100%; object-fit:cover; filter:var(--imgf); }
+.pr-img .ph-img {
+  width:100%; height:100%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink3);
+}
+
+/* ══ P3 — RECORRIDO ══════════════════════════════════ */
+.p3-grid {
+  display:grid; grid-template-columns:1fr 170px;
+  gap:48px; align-items:start;
+}
+.pull-q {
+  font-family:'Inter',sans-serif;
+  font-size:21px; font-weight:300; font-style:italic; line-height:1.3;
+  color:var(--ink); margin-bottom:56px; margin-right:218px; text-align:right;
+  padding-bottom:16px; border-bottom:1px solid var(--line);
+  transition:color .4s,border-color .4s;
+}
+.pull-q cite {
+  display:block; font-family:'Syne Mono',monospace;
+  font-style:normal; font-size:13px; font-weight:400;
+  letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink3); margin-top:8px;
+  text-align:right; transition:color .4s;
+}
+
+/* Three labeled groups */
+.s-groups { display:flex; flex-direction:column; gap:20px; }
+.s-group {}
+.s-group-label {
+  font-family:'Inter',sans-serif; font-weight:500;
+  font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--ink3); margin-bottom:8px; transition:color .4s;
+}
+.s-items { display:flex; flex-direction:column; gap:8px; }
+.s-item {
+  font-size:14.5px; color:var(--ink3);
+  display:flex; align-items:baseline; gap:8px; transition:color .4s;
+  line-height:1.7;
+}
+.s-item::before { content:'—'; color:var(--accent); font-size:11px; flex-shrink:0; transition:color .4s; }
+.s-item strong { color:var(--ink2); font-weight:400; }
+
+/* crop phawia: show middle 60% (clip 20% each side) */
+.p3-grid .simg.tall { overflow:hidden; }
+.p3-grid .simg.tall img { width:167%; margin-left:-33%; height:100%; object-fit:cover; }
+
+/* side image stack */
+.s-imgs { display:flex; flex-direction:column; gap:10px; }
+.simg { overflow:hidden; }
+.simg.tall { aspect-ratio:16/9; }
+.simg.sq   { aspect-ratio:1/1; }
+.simg img  { width:100%; height:100%; object-fit:cover; transition:transform .5s; }
+.simg img:hover { transform:scale(1.04); }
+.simg .ph {
+  width:100%; height:100%; background:var(--bg2); border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center;
+  font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink3);
+}
+
+/* ══ P4 — PERSONAL ═══════════════════════════════════ */
+.p4-grid {
+  display:grid; grid-template-columns:1fr 260px;
+  gap:52px; align-items:start;
+}
+.p4-text p {
+  font-size:16px; color:var(--ink2); font-weight:400; line-height:1.85;
+  margin-bottom:11px; transition:color .4s;
+}
+.p4-text p strong { color:var(--ink); font-weight:500; }
+.p4-list { margin-top:18px; display:flex; flex-direction:column; gap:8px; }
+.p4i {
+  font-size:15px; color:var(--ink3);
+  display:flex; align-items:baseline; gap:10px; transition:color .4s;
+}
+.p4i::before { content:'·'; color:var(--accent); font-size:18px; transition:color .4s; }
+.p4i strong { color:var(--ink2); font-weight:400; }
+
+/* p4 opening quote */
+.p4-quote {
+  font-family:'Inter',sans-serif;
+  font-size:21px; font-weight:300; font-style:italic;
+  line-height:1.3; margin-bottom:56px; margin-right:312px; color:var(--ink);
+  text-align:right; transition:color .4s;
+}
+.p4-quote cite {
+  display:block; font-family:'Syne Mono',monospace;
+  font-style:normal; font-size:13px; letter-spacing:.1em;
+  color:var(--accent); margin-top:6px;
+  text-align:right; transition:color .4s;
+}
+
+/* polaroid cluster */
+.polaroids {
+  position:relative; width:260px; height:260px;
+}
+.pol {
+  position:absolute;
+  background:var(--bg);
+  padding:7px 7px 22px;
+  box-shadow:var(--pol-shadow);
+  width:150px;
+  transition:background .4s, box-shadow .4s;
+}
+.pol img, .pol .ph-pol {
+  width:100%; aspect-ratio:1/1; object-fit:cover; display:block;
+}
+.pol .ph-pol {
+  background:var(--bg2); border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center;
+  font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink3);
+}
+.pol:nth-child(1) { top:0; left:0; transform:rotate(-4deg) translateZ(0); z-index:1; }
+.pol:nth-child(2) { top:40px; left:70px; transform:rotate(2.5deg) translateZ(0); z-index:2; }
+.pol:nth-child(3) { top:100px; left:20px; transform:rotate(-1.5deg) translateZ(0); z-index:3; }
+
+/* ══ P5 — CONTACTO ═══════════════════════════════════ */
+.p5-inner {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:72px; align-items:center;
+}
+.ct-head {
+  font-family:'Cormorant Garamond',serif;
+  font-size:42px; font-weight:400; font-style:italic;
+  line-height:1.05; margin-bottom:16px;
+}
+.ct-sub {
+  font-size:16px; color:var(--ink2); font-weight:400; line-height:1.82; transition:color .4s;
+}
+.ct-links { display:flex; flex-direction:column; }
+.ct-row {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:17px 0; border-bottom:1px solid var(--line);
+  text-decoration:none; color:var(--ink);
+  transition:padding-left .2s,border-color .4s;
+}
+.ct-row:last-child { border-bottom:none; }
+.ct-row:hover { padding-left:5px; }
+.ct-type {
+  font-family:'Inter',sans-serif; font-weight:500; font-size:11px;
+  text-transform:uppercase; letter-spacing:.16em;
+  color:var(--ink3); display:block; margin-bottom:2px; transition:color .4s;
+}
+.ct-val { font-size:14px; color:var(--ink2); transition:color .25s; }
+.ct-row:hover .ct-val { color:var(--ink); }
+.ct-arr { color:var(--ink3); transition:color .25s; }
+.ct-row:hover .ct-arr { color:var(--accent); }
+.ct-avail {
+  font-family:'Syne Mono',monospace; font-size:11px;
+  color:var(--accent); letter-spacing:.06em; margin-top:14px;
+  transition:color .4s;
+}
+.ct-updated {
+  font-family:'Syne Mono',monospace; font-size:10px;
+  color:var(--ink3); letter-spacing:.06em; margin-top:6px;
+  transition:color .4s;
+}
+
+/* ══ RESPONSIVE ══════════════════════════════════════ */
+@media (max-width:700px) {
+  /* desactiva snap — en mobile el scroll libre funciona mejor */
+  html { scroll-snap-type:none; overflow-y:auto; }
+  .page {
+    height:auto; min-height:100svh; overflow:visible;
+    display:block;
+  }
+
+  .nav-inner { padding-left:20px; padding-right:20px; }
+  .pi { padding:72px 20px 48px; }
+  .p1 .pi { padding-top:72px; }
+  .dots { display:none; }
+
+  /* hero */
+  .h-portrait {
+    float:none; width:88px; height:88px;
+    border-radius:50%; margin:0 0 16px 0;
+  }
+  .h-name { font-size:44px; }
+  .h-phrase { font-size:18px; max-width:100%; }
+  .h-desc { font-size:15px; max-width:100%; }
+
+  /* proyectos — imagen debajo del texto en mobile */
+  .proj-row {
+    grid-template-columns:36px 1fr;
+    grid-template-rows:auto auto;
+    gap:0 14px;
+  }
+  .pr-img {
+    grid-column:1 / -1;
+    width:100%; height:auto; aspect-ratio:16/9;
+    margin-top:10px;
+  }
+  .pr-name { font-size:22px; }
+
+  /* recorrido */
+  .p3-grid { grid-template-columns:1fr; gap:20px; }
+  .pull-q { margin-right:0; font-size:18px; text-align:left; }
+  .pull-q cite { text-align:left; }
+  .s-imgs { flex-direction:row; gap:8px; }
+  .simg.tall { flex:2; }
+  .simg.sq   { flex:1; }
+
+  /* más allá */
+  .p4-grid { grid-template-columns:1fr; gap:20px; }
+  .p4-quote { margin-right:0; font-size:18px; text-align:left; }
+  .p4-quote cite { text-align:left; }
+  .polaroids { display:none; }
+
+  /* contacto */
+  .p5-inner { grid-template-columns:1fr; gap:28px; }
+  .ct-head { font-size:34px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#p1" class="nav-brand">chikiyu</a>
+    <button class="toggle" id="tb" aria-label="Cambiar tema">
+      <span class="d">◐ día</span>
+      <span class="n">○ noche</span>
+    </button>
+  </div>
+</nav>
+
+<!-- DOTS -->
+<div class="dots" role="navigation" aria-label="Secciones">
+  <button class="dot on" data-t="p1" aria-label="Inicio"></button>
+  <button class="dot"    data-t="p2" aria-label="Proyectos"></button>
+  <button class="dot"    data-t="p3" aria-label="Recorrido"></button>
+  <button class="dot"    data-t="p4" aria-label="Más allá"></button>
+  <button class="dot"    data-t="p5" aria-label="Contacto"></button>
+</div>
+
+<!-- ══ P1: INICIO ══════════════════════════════════ -->
+<section class="page p1" id="p1">
+  <div class="pi">
+    <div class="h-portrait">
+      <img src="img/perfil_arequipa.jpg" alt="Milton Pachari"
+        onerror="this.outerHTML='<div class=\'ph\'>foto</div>'">
+    </div>
+
+    <h1 class="h-name">Milton Pachari</h1>
+    <div class="h-nick">chikiyu</div>
+
+    <p class="h-phrase">"En el paisaje de tus ojos"</p>
+    <p class="h-desc">
+      Me apasiona aprender cosas nuevas, entender algoritmos y datos — y aplicar ese
+      conocimiento en soluciones que combinen lógica, creatividad y propósito.
+    </p>
+    <p class="h-desc">
+      Con enfoque en minería de datos y NLP — investigando fairness en ML para predicción educativa.
+      Egresado de Ciencias de la Computación en la UNSAAC, Cusco.
+    </p>
+    <div class="h-links">
+      <a href="#p2" class="hl">Proyectos</a>
+      <a href="https://github.com/chikiyu" class="hl" target="_blank">GitHub</a>
+      <a href="#p5" class="hl">Contacto</a>
+      <a href="Milton_Pachari_Lipa_resume.pdf" class="hl" target="_blank">CV</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ P2: PROYECTOS ══════════════════════════════ -->
+<section class="page" id="p2">
+  <div class="pi">
+    <span class="pg-label">Proyectos</span>
+    <div class="proj-rows">
+
+      <div class="proj-row">
+        <div class="pr-num">01</div>
+        <div class="pr-body">
+          <div class="pr-cat">Computer Vision · Contexto Andino · 2024 <span class="pr-metric-inline">91.67%</span></div>
+          <div class="pr-name">CNN Papas Nativas</div>
+          <div class="pr-desc">Clasificación de <strong>83 variedades de papas nativas andinas</strong>. MobileNetV2 + SVM. Dataset propio de 34K imágenes.</div>
+          <div class="pr-foot">
+            <div class="pr-stack"><span>Python</span><span>TensorFlow</span><span>Gradio</span></div>
+            <a href="https://github.com/chikiyu/cnn-clasificacion-papas" class="pr-link" target="_blank">GitHub ↗</a>
+            <a href="https://huggingface.co/spaces/ayayon/clasificador-papas-nativas" class="pr-link" target="_blank">Demo ↗</a>
+          </div>
+        </div>
+        <div class="pr-img">
+          <img src="img/app_papas_example.png" alt="CNN Papas"
+            onerror="this.outerHTML='<div class=\'ph-img\'>img</div>'">
+        </div>
+      </div>
+
+      <div class="proj-row">
+        <div class="pr-num">02</div>
+        <div class="pr-body">
+          <div class="pr-cat">Hackathon · NASA Space Apps 2025 <span class="pr-metric-inline">🏆</span></div>
+          <div class="pr-name">Farm Navigators</div>
+          <div class="pr-desc">Juego educativo agrícola con <strong>realidad aumentada</strong> para el agricultor andino. Ganador sede Cusco · nominación global.</div>
+          <div class="pr-foot">
+            <div class="pr-stack"><span>NASA APIs</span><span>AR</span><span>Python</span></div>
+            <a href="https://github.com/iAmMazapan/FarmGuardians" class="pr-link" target="_blank">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="pr-img">
+          <img src="img/nasa_space25.jpg" alt="Farm Navigators"
+            onerror="this.outerHTML='<div class=\'ph-img\'>img</div>'">
+        </div>
+      </div>
+
+      <div class="proj-row">
+        <div class="pr-num">03</div>
+        <div class="pr-body">
+          <div class="pr-cat">Análisis Musical · Grafos · 2025 · En construcción</div>
+          <div class="pr-name">Spotify VS</div>
+          <div class="pr-desc">Análisis de <strong>grafos de co-ocurrencia musical</strong>. Comparación entre usuarios y evolución temporal de playlists.</div>
+          <div class="pr-foot">
+            <div class="pr-stack"><span>Python</span><span>NetworkX</span><span>Spotify API</span><span>Vue</span></div>
+            <a href="https://github.com/chikiyu/spotify-coocurrence-graphs" class="pr-link" target="_blank">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="pr-img">
+          <img src="img/spotify_graph_0.png" alt="Spotify co-ocurrencia"
+            onerror="this.outerHTML='<div class=\'ph-img\'>img</div>'">
+        </div>
+      </div>
+
+      <div class="proj-row">
+        <div class="pr-num">04</div>
+        <div class="pr-body">
+          <div class="pr-cat">Full Stack · Prácticas Profesionales · 2025</div>
+          <div class="pr-name">SGD</div>
+          <div class="pr-desc">Sistema institucional para la <strong>gestión de documentos y trámites</strong>. API REST, autenticación y flujo completo de derivación de expedientes.</div>
+          <div class="pr-foot">
+            <div class="pr-stack"><span>Django</span><span>Vue.js</span><span>Quasar</span><span>Docker</span><span>MySQL</span></div>
+          </div>
+        </div>
+        <div class="pr-img">
+          <img src="img/sgd_sistema_screenshot.png" alt="SGD sistema"
+            onerror="this.outerHTML='<div class=\'ph-img\'>sistema</div>'">
+        </div>
+      </div>
+
+      <!-- Andean-Fair-EDM — descomentar cuando haya estructura de carpetas, datos y preprocesamiento mínimo
+      <div class="proj-row">
+        <div class="pr-num">04</div>
+        <div class="pr-body">
+          <div class="pr-cat">ML Fairness · Investigación · 2025–2026 · En progreso</div>
+          <div class="pr-name">Andean-Fair-EDM</div>
+          <div class="pr-desc"><strong>Propuesta de tesis:</strong> benchmark de fairness interseccional en modelos de predicción de rendimiento académico en contexto andino. Datos MINEDU (ECE/ENLA).</div>
+          <div class="pr-foot">
+            <div class="pr-stack"><span>Fairlearn</span><span>SHAP</span><span>XGBoost</span></div>
+            <a href="https://github.com/chikiyu/prediccion-rendimiento-academico" class="pr-link" target="_blank">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="pr-img">
+          <img src="img/rendimiento_academico.jpg" alt="Andean-Fair-EDM"
+            onerror="this.outerHTML='<div class=\'ph-img\'>img</div>'">
+        </div>
+      </div>
+      -->
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ P3: RECORRIDO ══════════════════════════════ -->
+<section class="page" id="p3">
+  <div class="pi">
+    <span class="pg-label">Recorrido</span>
+    <div class="pull-q">
+      "La educación no cambia el mundo, cambia a las personas que cambiarán el mundo."
+      <cite>— Paulo Freire</cite>
+    </div>
+    <div class="p3-grid">
+      <div>
+        <div class="s-groups">
+          <div class="s-group">
+            <div class="s-group-label">Premios</div>
+            <div class="s-items">
+              <div class="s-item"><strong>NASA Space Apps Challenge 2025</strong> — Ganador sede Cusco · nominación global</div>
+              <div class="s-item"><strong>CUSCONTEST</strong> — Ganador 2× · concurso de CP en Ingeniería Informática, UNSAAC</div>
+              <div class="s-item"><strong>ELECON 2023</strong> — 2° lugar · encuentro latinoamericano de programación competitiva</div>
+              <div class="s-item"><strong>Paqarina Wasi</strong> — Hackathon, marzo 2026</div>
+            </div>
+          </div>
+          <!-- voluntariado comentado por ahora
+          <div class="s-group">
+            <div class="s-group-label">Voluntariado</div>
+            <div class="s-items">
+              <div class="s-item"><strong>Co-fundador — CP/IA para secundaria</strong> — enseñanza de programación competitiva e IA en colegios del Cusco (en curso)</div>
+            </div>
+          </div>
+          -->
+          <div class="s-group">
+            <div class="s-group-label">Talleres</div>
+            <div class="s-items">
+              <div class="s-item"><strong>PhawIA + TaReCDa 2025</strong> — simposio de IA e investigación · Arequipa</div>
+              <div class="s-item"><strong>Training Camp · UCSP 2025</strong> — programación competitiva · Arequipa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="s-imgs">
+        <div class="simg tall">
+          <img src="img/phawai.jpg" alt="PhawIA 2025"
+            onerror="this.outerHTML='<div class=\'ph\'>foto</div>'">
+        </div>
+        <div class="simg sq">
+          <img src="img/perfil_cp.jpg" alt="Milton"
+            onerror="this.outerHTML='<div class=\'ph\'>foto</div>'">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ P4: PERSONAL ════════════════════════════════ -->
+<section class="page" id="p4">
+  <div class="pi">
+    <span class="pg-label">Más allá</span>
+    <div class="p4-quote">"the world of ideas."<cite>— chikiyu</cite></div>
+    <div class="p4-grid">
+      <div class="p4-text">
+        <p>Toco guitarra porque me permite ir más allá de lo que puedo decir con palabras. Leo, escribo y me pierdo en videojuegos — distintas formas de explorar el mismo mundo de ideas.</p>
+        <div class="p4-list">
+          <div class="p4i"><strong>Guitarra</strong> — el sentimiento detrás de cada composición</div>
+          <div class="p4i"><strong>Lectura</strong> — mundos, ideas y perspectivas nuevas</div>
+          <div class="p4i"><strong>Escritura</strong> (intento de jeje)</div>
+          <div class="p4i"><strong>Videojuegos</strong> — diversión y creatividad</div>
+        </div>
+      </div>
+      <div class="polaroids">
+        <div class="pol">
+          <img src="img/phawai.jpg" alt="PhawIA"
+            onerror="this.outerHTML='<div class=\'ph-pol\'>foto</div>'">
+        </div>
+        <div class="pol">
+          <img src="img/perfil_cp.jpg" alt="Milton"
+            onerror="this.outerHTML='<div class=\'ph-pol\'>foto</div>'">
+        </div>
+        <div class="pol">
+          <img src="img/farmguardians.jpeg" alt="proyecto"
+            onerror="this.outerHTML='<div class=\'ph-pol\'>foto</div>'">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ P5: CONTACTO ════════════════════════════════ -->
+<section class="page" id="p5">
+  <div class="pi">
+    <div class="p5-inner">
+      <div>
+        <span class="pg-label">Contacto</span>
+        <h2 class="ct-head">Estoy aquí.<br>¿Hablamos?</h2>
+        <p class="ct-sub">Investigación, proyectos o simplemente para charlar.</p>
+        <p class="ct-avail">● Disponible — cuéntame qué tienes en mente</p>
+      </div>
+      <div class="ct-links">
+        <a href="https://github.com/chikiyu" class="ct-row" target="_blank">
+          <div><span class="ct-type">GitHub</span><span class="ct-val">github.com/chikiyu</span></div>
+          <span class="ct-arr">↗</span>
+        </a>
+        <a href="mailto:alexispacharii@gmail.com" class="ct-row">
+          <div><span class="ct-type">Email</span><span class="ct-val">alexispacharii@gmail.com</span></div>
+          <span class="ct-arr">↗</span>
+        </a>
+        <a href="https://linkedin.com/in/milton-alexis-pachari-lipa-a70310395" class="ct-row" target="_blank">
+          <div><span class="ct-type">LinkedIn</span><span class="ct-val">Milton Alexis Pachari Lipa</span></div>
+          <span class="ct-arr">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  /* theme */
+  const body = document.body;
+  if (localStorage.getItem('mp-dark')==='1') body.classList.add('dark');
+  document.getElementById('tb').addEventListener('click',()=>{
+    body.classList.toggle('dark');
+    localStorage.setItem('mp-dark', body.classList.contains('dark')?'1':'0');
+  });
+
+  /* dots */
+  const pids = ['p1','p2','p3','p4','p5'];
+  const dots = document.querySelectorAll('.dot');
+  dots.forEach(d => d.addEventListener('click',()=>{
+    document.getElementById(d.dataset.t).scrollIntoView({behavior:'smooth'});
+  }));
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const i = pids.indexOf(e.target.id);
+        dots.forEach((d,j)=>d.classList.toggle('on',i===j));
+      }
+    });
+  },{threshold:0.55});
+  pids.forEach(id=>obs.observe(document.getElementById(id)));
+
+  /* smooth anchor links */
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const el = document.getElementById(a.getAttribute('href').slice(1));
+      if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+    });
+  });
+</script>
+</body>
+</html>
